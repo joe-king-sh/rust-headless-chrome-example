@@ -87,7 +87,7 @@ fn intercept_request() -> Fallible<()> {
         Box::new(|_transport, _session_id, intercepted| {
             if intercepted.request.url == "https://www.google.com/" {
                 println!("intercept!");
-                let body = "This request is intercepted!";
+                let body = "This request was intercepted!";
                 let js_response = tiny_http::Response::new(
                     200.into(),
                     vec![tiny_http::Header::from_bytes(
